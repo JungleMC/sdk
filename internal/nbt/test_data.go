@@ -1,4 +1,4 @@
-package test
+package nbt
 
 type UnnamedRootCompound struct {
 	ByteTag   byte

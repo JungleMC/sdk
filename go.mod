@@ -1,4 +1,4 @@
-module github.com/junglemc/sdk
+module github.com/JungleMC/sdk
 
 go 1.16
 

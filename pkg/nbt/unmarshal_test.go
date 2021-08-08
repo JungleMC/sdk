@@ -1,7 +1,7 @@
 package nbt
 
 import (
-	"github.com/junglemc/sdk/internal/nbt/test"
+	"github.com/JungleMC/sdk/internal/nbt"
 	"reflect"
 	"testing"
 )
@@ -15,7 +15,7 @@ func TestUnmarshalCompoundMap(t *testing.T) {
 	}{
 		{
 			name:  "unnamed root compound tag",
-			input: test.UnnamedRootCompoundBytes,
+			input: nbt.UnnamedRootCompoundBytes,
 			expected: map[string]interface{}{
 				"ByteTag":   byte(0xFF),
 				"StringTag": "hello, world",
@@ -52,9 +52,9 @@ func TestUnmarshalCompoundStruct(t *testing.T) {
 	}{
 		{
 			name:        "unnamed root compound tag",
-			tagBytes:    test.UnnamedRootCompoundBytes,
+			tagBytes:    nbt.UnnamedRootCompoundBytes,
 			wantTagName: "",
-			want: test.UnnamedRootCompound{
+			want: nbt.UnnamedRootCompound{
 				ByteTag:   0xFF,
 				StringTag: "hello, world",
 			},
@@ -62,33 +62,33 @@ func TestUnmarshalCompoundStruct(t *testing.T) {
 		},
 		{
 			name:        "bananrama",
-			tagBytes:    test.BananramaBytes,
+			tagBytes:    nbt.BananramaBytes,
 			wantTagName: "",
-			want:        test.BananramaStruct,
+			want:        nbt.BananramaStruct,
 			wantErr:     false,
 		},
 		{
 			name:        "bigtest",
-			tagBytes:    test.BigTestBytes,
+			tagBytes:    nbt.BigTestBytes,
 			wantTagName: "Level",
-			want: test.BigTest{
+			want: nbt.BigTest{
 				LongTest:   9223372036854775807,
 				ShortTest:  32767,
 				StringTest: "HELLO WORLD THIS IS A TEST STRING \xc3\x85\xc3\x84\xc3\x96!",
 				FloatTest:  0.49823147058486938,
 				IntTest:    2147483647,
-				NCT: test.BigTestNCT{
-					Egg: test.BigTestNameAndFloat32{
+				NCT: nbt.BigTestNCT{
+					Egg: nbt.BigTestNameAndFloat32{
 						Name:  "Eggbert",
 						Value: 0.5,
 					},
-					Ham: test.BigTestNameAndFloat32{
+					Ham: nbt.BigTestNameAndFloat32{
 						Name:  "Hampus",
 						Value: 0.75,
 					},
 				},
 				ListTest: []int64{11, 12, 13, 14, 15},
-				ListTest2: [2]test.BigTestCompound{
+				ListTest2: [2]nbt.BigTestCompound{
 					{
 						Name:      "Compound tag #0",
 						CreatedOn: 1264099775885,
@@ -99,7 +99,7 @@ func TestUnmarshalCompoundStruct(t *testing.T) {
 					},
 				},
 				ByteTest:      127,
-				ByteArrayTest: test.BigTestByteArray(),
+				ByteArrayTest: nbt.BigTestByteArray(),
 				DoubleTest:    0.49312871321823148,
 			},
 			wantErr: false,

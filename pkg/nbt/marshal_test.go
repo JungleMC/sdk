@@ -3,7 +3,7 @@ package nbt
 import (
 	"bufio"
 	"bytes"
-	"github.com/junglemc/sdk/internal/nbt/test"
+	"github.com/JungleMC/sdk/internal/nbt"
 	"os"
 	"path/filepath"
 	"testing"
@@ -24,7 +24,7 @@ func TestMarshalCompoundMap(t *testing.T) {
 				"ByteTag":   byte(0xFF),
 				"StringTag": "hello, world",
 			},
-			expected:      test.UnnamedRootCompoundBytes,
+			expected:      nbt.UnnamedRootCompoundBytes,
 			expectedError: false,
 		},
 	}
@@ -57,41 +57,41 @@ func TestMarshalCompoundStruct(t *testing.T) {
 		{
 			name:    "unnamed root compound tag",
 			tagName: "",
-			tag: test.UnnamedRootCompound{
+			tag: nbt.UnnamedRootCompound{
 				ByteTag:   0xFF,
 				StringTag: "hello, world",
 			},
-			want:    test.UnnamedRootCompoundBytes,
+			want:    nbt.UnnamedRootCompoundBytes,
 			wantErr: false,
 		},
 		{
 			name:    "bananrama",
 			tagName: "hello world",
-			tag:     test.BananramaStruct,
-			want:    test.BananramaBytes,
+			tag:     nbt.BananramaStruct,
+			want:    nbt.BananramaBytes,
 			wantErr: false,
 		},
 		{
 			name:    "bigtest",
 			tagName: "Level",
-			tag: test.BigTest{
+			tag: nbt.BigTest{
 				LongTest:   9223372036854775807,
 				ShortTest:  32767,
 				StringTest: "HELLO WORLD THIS IS A TEST STRING \xc3\x85\xc3\x84\xc3\x96!",
 				FloatTest:  0.49823147058486938,
 				IntTest:    2147483647,
-				NCT: test.BigTestNCT{
-					Egg: test.BigTestNameAndFloat32{
+				NCT: nbt.BigTestNCT{
+					Egg: nbt.BigTestNameAndFloat32{
 						Name:  "Eggbert",
 						Value: 0.5,
 					},
-					Ham: test.BigTestNameAndFloat32{
+					Ham: nbt.BigTestNameAndFloat32{
 						Name:  "Hampus",
 						Value: 0.75,
 					},
 				},
 				ListTest: []int64{11, 12, 13, 14, 15},
-				ListTest2: [2]test.BigTestCompound{
+				ListTest2: [2]nbt.BigTestCompound{
 					{
 						Name:      "Compound tag #0",
 						CreatedOn: 1264099775885,
@@ -102,10 +102,10 @@ func TestMarshalCompoundStruct(t *testing.T) {
 					},
 				},
 				ByteTest:      127,
-				ByteArrayTest: test.BigTestByteArray(),
+				ByteArrayTest: nbt.BigTestByteArray(),
 				DoubleTest:    0.49312871321823148,
 			},
-			want:    test.BigTestBytes,
+			want:    nbt.BigTestBytes,
 			wantErr: false,
 		},
 	}
