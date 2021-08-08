@@ -1,3 +1,3 @@
-# junglemc/sdk
+# JungleMC/sdk
 
 JungleTree SDK.
