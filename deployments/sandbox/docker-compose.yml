@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  redis-sandbox:
+    image: "redis:6-alpine"
+    volumes:
+      - redis-data:/var/lib/redis
+    networks:
+      - internal
+    ports:
+      - "6379:6379"
+
+volumes:
+  redis-data:
+
+networks:
+  external:
+    name: "jungletree-public"
+    external: true
+  internal:
+    name: "jungletree-private"
+    external: false
