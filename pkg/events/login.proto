@@ -9,6 +9,8 @@ import "pkg/messages/types.proto";
 message PlayerLoginEvent {
   ClientType clientType = 1;
   bytes networkId = 2;
-  bytes uuid = 3;
+  bytes profileId = 3;
   string username = 4;
+  string skinUrl = 5;
+  string capeUrl = 6;
 }
