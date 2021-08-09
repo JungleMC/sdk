@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package messages;
+
+option go_package = "github.com/JungleMC/sdk/pkg/redis/messages";
+
+message Player {
+  bytes uuid = 1;
+  string username = 2;
+  bool banned = 3;
+
+  Gamemode gamemode = 10;
+  Difficulty difficulty = 11;
+  string locale = 12;
+  uint32 viewDistance = 13;
+  ChatMode chatMode = 14;
+  bool chatColorsEnabled = 15;
+  Hand mainHand = 16;
+}
+
+enum Gamemode {
+  SURVIVAL = 0;
+  CREATIVE = 1;
+  ADVENTURE = 2;
+  SPECTATOR = 3;
+}
+
+enum Difficulty {
+  PEACEFUL = 0;
+  EASY = 1;
+  NORMAL = 2;
+  HARD = 3;
+}
+
+enum ChatMode {
+  ENABLED = 0;
+  COMMANDS_ONLY = 1;
+  HIDDEN = 2;
+}
+
+enum Hand {
+  LEFT = 0;
+  RIGHT = 1;
+}
