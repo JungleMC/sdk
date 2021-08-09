@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package messages;
 
-option go_package = "github.com/JungleMC/sdk/pkg/redis/messages";
+option go_package = "github.com/JungleMC/sdk/pkg/messages";
 
 message Player {
   bytes uuid = 1;
@@ -41,4 +41,9 @@ enum ChatMode {
 enum Hand {
   LEFT = 0;
   RIGHT = 1;
+}
+
+enum ClientType {
+  JAVA_EDITION = 0;
+  BEDROCK_EDITION = 1;
 }

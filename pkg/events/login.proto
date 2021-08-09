@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package messages;
+
+option go_package = "github.com/JungleMC/sdk/pkg/events";
+
+import "pkg/messages/types.proto";
+
+message PlayerLoginEvent {
+  ClientType clientType = 1;
+  bytes networkId = 2;
+  bytes uuid = 3;
+  string username = 4;
+}
