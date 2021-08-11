@@ -14,3 +14,12 @@ message PlayerLoginEvent {
   string skinUrl = 5;
   string capeUrl = 6;
 }
+
+message PlayerLoginResponse {
+  ClientType clientType = 1;
+  bytes networkId = 2;
+  bytes profileId = 3;
+  string username = 4;
+  bool success = 5;
+  optional string disconnectMessage = 6;
+}

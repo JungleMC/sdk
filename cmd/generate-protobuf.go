@@ -28,7 +28,7 @@ func main() {
 		}
 
 		println(relPath)
-		cmd := exec.Command("protoc", "--go_out=.", "--go_opt=paths=source_relative", "--go-grpc_out=.", "--go-grpc_opt=paths=source_relative", relPath)
+		cmd := exec.Command("protoc", "--go_out=.", "--go_opt=paths=source_relative", relPath)
 
 		var outb, errb bytes.Buffer
 		cmd.Stdout = &outb
